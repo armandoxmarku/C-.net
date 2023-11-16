@@ -1,0 +1,54 @@
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* code starts here */
+.container {
+    background-color: #ffffff;
+    width: 1000px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.cardTop {
+    background-color: #17a2b8;
+    height: 125px;
+    width: 1000px;
+}
+.cardBottom{
+    padding-top: 100px;
+    border: 5px solid #b0afaf;
+    border-top: none;
+
+}
+.icon {
+    height: 20px;
+    margin-right: 10px;
+}
+a {
+    color: #2f7ce9;
+}
+.profilepic {
+    background-color: #fff;
+    border: 4px solid #b0afaf ;
+    border-radius: 100% ;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 5px;
+    height: 190px;
+    
+}
+ h1, h2, h3,p {
+    margin:20px 50px ;
+    
+}
+.d-flex{
+    display: flex;
+}
+.justify-spcBtwn{
+    justify-content: space-between;
+}
+.align-cntr{
+    align-items: center;
+}

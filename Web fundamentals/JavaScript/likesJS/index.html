@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+<header>Network</header>
+<nav>Your Feed</nav>
+<div class="mainArea">
+    <aside class="smallProfile">
+        <img id="smallUserPic" src="./images/user-circle.png">
+        <a href="#">add an avatar</a>
+        <p id="smallUserName">james doe</p>
+    </aside>
+
+    <section class="feed">
+        <div class="box">
+            <div class="top">
+                <p class="name">Neil M</p>
+                <p class="likes" id="post1Likes">0 Likes</p>
+                <button class="likeButton" onclick="addLike(0)">Like</button>
+            </div>
+            <p class="comment">I just set up this new discord bot, let me know what you all think. <a href="#">link</a> </p>
+        </div>
+
+        <div class="box">
+            <div class="top">
+                <p class="name">Nicole K</p>
+                <p class="likes" id="post2Likes">0 Likes</p>
+                <button class="likeButton" onclick="addLike(1)">Like</button>
+            </div>
+            <p class="comment">Just finished my <a href="#">next comic</a>, check it out.</p>
+        </div>
+
+        <div class="box">
+            <div class="top">
+                <p class="name">Jim R</p>
+                <p class="likes" id="post3Likes">0 Likes</p>
+                <button class="likeButton" onclick="addLike(2)">Like</button>
+            </div>
+            <p class="comment">I can't stop listening to the <a href="#">new album</a>. Who else is liking it?</p>
+        </div>
+    </section>
+</div>
+    
+</body>
+</html>

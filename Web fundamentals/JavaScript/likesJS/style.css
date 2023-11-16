@@ -1,0 +1,90 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    background-color: black;
+    color: white;
+    font-size: 50px;
+    margin: 0px 200px;
+    padding: 0px 20px;
+}
+
+nav {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    margin: 0px 200px;
+    font-weight: bold;
+}
+
+.mainArea {
+    display: flex;
+    margin: 0px 200px;
+}
+
+.smallProfile {
+    flex: 1;
+    border: 1px solid black;
+    height: 255px;
+    width: 190px;
+    text-align: center;
+
+}
+
+#avatarLink {
+    font-weight: bold;
+    color: cornflowerblue;
+    font-size: 30px;
+    margin: 50px;
+}
+
+#smallUserName {
+    margin: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+#smallUserPic {
+    height: 100px;
+    width: 100px;
+    margin: 20px 50px;
+    border-radius: 50px;
+}
+
+.feed {
+    flex: 4;
+}
+
+
+.box {
+    height: auto;
+    width: auto;
+    margin: 20px 100px;
+    padding: 30px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.likeButton {
+    padding: 0px 10px;
+    background-color:#ffd966;
+    box-shadow: 3px 2px black;
+}
+.name{
+    font-size: 18px;
+}
+
+.comment {
+    margin: 5px;
+}

@@ -1,0 +1,26 @@
+.header1{
+    background-color: black;
+    color: white;
+    padding : 25px;
+    margin: 20px;
+    font-family: sans-serif;
+}
+#cloud {
+    color: aqua;
+}
+.header2{
+    background-color: rgb(100, 1, 100);
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    font-family: italic;
+}
+.contactUS{
+    background-color: lightskyblue;
+    padding: 20px;
+    display: block;
+    text-align: right;
+    margin: 20px;
+    font-size: x-large;
+}

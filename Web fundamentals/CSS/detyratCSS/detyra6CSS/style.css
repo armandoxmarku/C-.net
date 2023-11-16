@@ -1,0 +1,52 @@
+.nav{
+    background-color: #343a40;
+    width: auto;
+    height: 50px;
+}
+.d-flex{
+    display: flex;
+}
+
+.nav-title{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+
+}
+.justify-btwn{
+    justify-content:space-between
+}
+.justify-space{
+    justify-content: space-around;
+}
+.liststl{
+    list-style: none;
+}
+.widthlist{
+    width: 50%;
+
+}
+.align-cntr{
+    align-items: center;
+}
+.p-20{
+    padding: 20px;
+}
+a {
+    color: rgb(122, 119, 119);
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+.active{
+    color: white;
+    
+}
+.btn {
+    height: 35px;
+    width: 100px;
+    background-color: #17a2b8;
+    color: #ffffff;
+    box-shadow: 6px 5px  #000000;
+    border: none;
+    font-size: 16px;
+    
+}
