@@ -13,5 +13,4 @@ function addLike(id) {
     else {
         userLike[id].innerText =likes[id]+" likes"
     }
-    
 }

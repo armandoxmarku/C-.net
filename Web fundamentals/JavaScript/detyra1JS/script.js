@@ -3,10 +3,10 @@ function message() {
 }
 
 function login(element) {
-    if(element.innerText == "Login") {
-        element.innerText = "Logout";
+    if(element.innerText == "logout") {
+        element.innerText = "login";
     } else {
-        element.innerText = "Logout";
+        element.innerText = "logout";
     }
 }
 
