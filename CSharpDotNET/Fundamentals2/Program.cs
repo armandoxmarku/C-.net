@@ -51,7 +51,7 @@ foreach (string name in names2)
 }
 
 
-foreach (var kvp in userDictionary)
+foreach (var keyValue in userDictionary)
 {
-    Console.WriteLine($"{kvp.Key}'s favorite ice cream flavor is {kvp.Value}.");
+    Console.WriteLine($"{keyValue.Key}'s favorite ice cream flavor is {keyValue.Value}.");
 }
