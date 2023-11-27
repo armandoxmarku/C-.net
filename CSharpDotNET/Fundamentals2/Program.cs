@@ -13,9 +13,9 @@ for (int i = 0; i < 10; i++)
 {
     booleanArray[i] = i % 2 == 0;
 }
-Console.WriteLine("Integer Array: " + string.Join(", ", integerArray));
-Console.WriteLine("String Array: " + string.Join(", ", stringArray));
-Console.WriteLine("Boolean Array: " + string.Join(", ", booleanArray));
+System.Console.WriteLine("String Array: " + string.Join(", ", stringArray));
+System.Console.WriteLine("Boolean Array: " + string.Join(", ", booleanArray));
+System.Console.WriteLine("Integer Array: " + string.Join(", ", integerArray));
 
 
 List<string> iceCreamFlavors = new List<string>
@@ -24,14 +24,14 @@ List<string> iceCreamFlavors = new List<string>
     };
 
 
-Console.WriteLine("Initial Length of the List: " + iceCreamFlavors.Count);
+System.Console.WriteLine("Initial Length of the List: " + iceCreamFlavors.Count);
 
 
-Console.WriteLine("Third Flavor in the List: " + iceCreamFlavors[2]);
+System.Console.WriteLine("Third Flavor in the List: " + iceCreamFlavors[2]);
 
 iceCreamFlavors.RemoveAt(2);
 
-Console.WriteLine("Length of the List after removal: " + iceCreamFlavors.Count);
+System.Console.WriteLine("Length of the List after removal: " + iceCreamFlavors.Count);
 
 
 
@@ -53,5 +53,5 @@ foreach (string name in names2)
 
 foreach (var keyValue in userDictionary)
 {
-    Console.WriteLine($"{keyValue.Key}'s favorite ice cream flavor is {keyValue.Value}.");
+    System.Console.WriteLine($"{keyValue.Key}'s favorite ice cream flavor is {keyValue.Value}.");
 }
