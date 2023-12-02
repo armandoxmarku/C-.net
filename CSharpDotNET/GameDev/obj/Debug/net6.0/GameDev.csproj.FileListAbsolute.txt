@@ -1,0 +1,15 @@
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\bin\Debug\net6.0\GameDev.exe
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\bin\Debug\net6.0\GameDev.deps.json
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\bin\Debug\net6.0\GameDev.runtimeconfig.json
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\bin\Debug\net6.0\GameDev.dll
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\bin\Debug\net6.0\GameDev.pdb
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.AssemblyInfo.cs
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.dll
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\refint\GameDev.dll
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.pdb
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\GameDev.genruntimeconfig.cache
+C:\Users\USER\Desktop\C#.net\CSharpDotNET\GameDev\obj\Debug\net6.0\ref\GameDev.dll
