@@ -1,0 +1,28 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Portfoglio
+build_property.RootNamespace = Portfoglio
+build_property.ProjectDir = C:\Users\USER\Desktop\C#.net\CSharpDotNET\Portfoglio\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\USER\Desktop\C#.net\CSharpDotNET\Portfoglio
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/USER/Desktop/C\#.net/CSharpDotNET/Portfoglio/views/Portfoglio/contacts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = dmlld3NcUG9ydGZvZ2xpb1xjb250YWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/C\#.net/CSharpDotNET/Portfoglio/views/Portfoglio/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = dmlld3NcUG9ydGZvZ2xpb1xpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/USER/Desktop/C\#.net/CSharpDotNET/Portfoglio/views/Portfoglio/projects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = dmlld3NcUG9ydGZvZ2xpb1xwcm9qZWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
