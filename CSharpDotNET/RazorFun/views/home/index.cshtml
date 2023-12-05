@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HERE ARE SOME DELICOUS FOODS</h1>
+    @{
+        List<string> list = new List<string>{
+
+            "apple pie",
+            "chocolate",
+            "pizza",
+            "lasagna",
+            "donout",
+            "burrito",
+            "cinnamon rolls"
+
+
+            };
+
+    }
+    @foreach (var item in list)
+    {
+         <p style="color: @(item.StartsWith("c") ? "red" : "black")">@item</p>
+    }
+    
+</body>
+</html>
