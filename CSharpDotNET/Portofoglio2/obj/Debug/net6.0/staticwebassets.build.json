@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "ueC7cx90q/ipfAUJn9gLHDBSvlhTjWvqaz+7oA5MMAQ=",
+  "Source": "Portofoglio",
+  "BasePath": "_content/Portofoglio",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Portofoglio\\wwwroot",
+      "Source": "Portofoglio",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\",
+      "BasePath": "_content/Portofoglio",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\css\\about.css",
+      "SourceId": "Portofoglio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\",
+      "BasePath": "_content/Portofoglio",
+      "RelativePath": "css/about.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\about.css"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\css\\contact.css",
+      "SourceId": "Portofoglio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\",
+      "BasePath": "_content/Portofoglio",
+      "RelativePath": "css/contact.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\contact.css"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\css\\projects.css",
+      "SourceId": "Portofoglio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\C#.net\\CSharpDotNET\\Portofoglio2\\wwwroot\\",
+      "BasePath": "_content/Portofoglio",
+      "RelativePath": "css/projects.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\projects.css"
+    }
+  ]
+}
