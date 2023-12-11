@@ -1,0 +1,19 @@
+@{
+    ViewData["title"] = "Dojo Survey Index";
+}
+@Model
+<div class="container">
+    <h1 class="text-center"><b>Submitted Info</b></h1>
+
+    <fieldset>
+        <legend>Details:</legend>
+        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Language:</strong> @Model.Languages</p>
+        <p><strong>Location:</strong> @Model.Locations</p>
+        <p><strong>Comment:</strong> @Model.Comments</p>
+    </fieldset>
+
+    <button class="btn btn-primary">
+        <a  href="/" class="text-white">Go Back</a>
+    </button>
+</div>

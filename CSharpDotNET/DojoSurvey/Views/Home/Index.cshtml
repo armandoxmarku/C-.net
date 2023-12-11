@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@Model 
+<div class="container">
+    <h1 class="text-center"><b>Dojo Survey</b></h1>
+    <form class="mx-auto" style="max-width: 400px;" action="survey" method="POST">
+
+        <div class="form-group">
+            <label for="Name">Your Name:</label>
+            <input class="form-control" type="text" placeholder="John Doe" name="Name">
+        </div>
+
+        <div class="form-group">
+            <label for="Locations">Dojo Location:</label>
+            <select class="form-control" name="Locations">
+                <option value="Lezhe">Lezhe</option>
+                <option value="shkoder">shkoder</option>
+                <option value="tirane">tirane</option>
+                <option value="durres">Durres</option>
+                <option value="diber">diber</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Languages">Favorite Language:</label>
+            <select class="form-control" name="Languages">
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="cplusplus">C++</option>
+                <option value="csharp">C#</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Comments">Comment (Optional)</label>
+            <textarea class="form-control" id="Comments" placeholder="What's on your mind?" name="Comments"></textarea>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
