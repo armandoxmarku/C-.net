@@ -61,24 +61,24 @@ public class HomeController : Controller
     [HttpGet("/users")]
     public IActionResult UserAll()
     {
-        User Joey = new User
+        User llesh = new User
         {
-            fname = "Joey",
-            lname = "Weber"
+            fname = "llesh",
+            lname = "pjetri"
         };
-        User Nicole = new User
+        User mark = new User
         {
-            fname = "Nicole",
-            lname = "Weber"
+            fname = "mark",
+            lname = "doda"
         };
-        User Chris = new User
+        User frrok = new User
         {
-            fname = "Chris",
-            lname = "Jager"
+            fname = "frrok",
+            lname = "prenga"
         };
         List<User> users = new List<User>()
         {
-            Joey, Nicole, Chris
+            llesh, mark, frrok
         };
         ViewBag.User = users;
         return View("UsersAll", users);
