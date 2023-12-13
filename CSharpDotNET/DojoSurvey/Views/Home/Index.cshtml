@@ -2,19 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-@Model 
+@model User
 <div class="container">
     <h1 class="text-center"><b>Dojo Survey</b></h1>
-    <form class="mx-auto" style="max-width: 400px;" action="survey" method="POST">
+    <form asp-controller="survey" asp-action="" class="mx-auto" style="max-width: 400px;" method="POST">
 
         <div class="form-group">
-            <label for="Name">Your Name:</label>
-            <input class="form-control" type="text" placeholder="John Doe" name="Name">
+            <label asp-for="Name">Your Name:</label>
+            <input asp-for="Name" class="form-control" type="text" placeholder="John Doe" name="Name">
+            <span class="text-danger"asp-validation-for="Name"></span>
         </div>
 
         <div class="form-group">
-            <label for="Locations">Dojo Location:</label>
-            <select class="form-control" name="Locations">
+            <label asp-for="Locations">Dojo Location:</label>
+            <span class="text-danger" asp-validation-for="Locations"></span>
+            <select class="form-control" asp-for="Locations">
                 <option value="Lezhe">Lezhe</option>
                 <option value="shkoder">shkoder</option>
                 <option value="tirane">tirane</option>
@@ -24,8 +26,9 @@
         </div>
 
         <div class="form-group">
-            <label for="Languages">Favorite Language:</label>
-            <select class="form-control" name="Languages">
+            <label asp-for="Languages">Favorite Language:</label>
+            <span class="text-danger" asp-validation-for="Languages"></span>
+            <select class="form-control" asp-for="Languages">
                 <option value="java">Java</option>
                 <option value="python">Python</option>
                 <option value="javascript">JavaScript</option>
@@ -35,8 +38,9 @@
         </div>
 
         <div class="form-group">
-            <label for="Comments">Comment (Optional)</label>
-            <textarea class="form-control" id="Comments" placeholder="What's on your mind?" name="Comments"></textarea>
+            <label asp-for="Comments">Comment (Optional)</label>
+            <span class="text-danger" asp-validation-for="Comments"></span>
+            <textarea class="form-control" id="Comments" placeholder="What's on your mind?" asp-for="Comments"></textarea>
         </div>
 
         <input class="btn btn-primary" type="submit" value="Submit">

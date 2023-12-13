@@ -20,7 +20,12 @@ public class HomeController : Controller
     [HttpPost("survey")] 
     public IActionResult Results(User user)
     {
-        return View(user);
+
+        if (ModelState.IsValid)
+        {
+             return View(user);
+        }
+        return View("index");
     }
 
     public IActionResult Privacy()
