@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>@ViewBag.chileEruption</h3>
+<h3>@ViewBag.HawaiianEruption</h3>
+<h3>@ViewBag.newZeland</h3>
+<h3>@ViewBag.GreenlandEruption</h3>
+<h3>@ViewBag.newZeland</h3>
+<h3>eruptions with elevation 2000</h3>
+@foreach(var item in @ViewBag.elevation2000){
+    <p>@item</p>
+}
+<h3>eruptions with leter L</h3>
+@foreach(var item in @ViewBag.eruptionL){
+    <p>@item</p>
+}
+
