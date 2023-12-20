@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Welcome to CRUD DELICIOUS</h1>
+<h2>Check out some recent dishes</h2>
+@foreach(var item in ViewBag.Dishes){
+     <h4><a asp-action="DetailsDish" asp-route-itemid="@item.DishId">@item.DishName</a> by @item.DishChef</h4>
+
+}
