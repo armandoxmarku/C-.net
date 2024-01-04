@@ -1,0 +1,45 @@
+@* @if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+} *@
+
+@model Dish
+<div class="container mt-3">
+    <h2>Create Dish</h2>
+    <form asp-action="CreateDish" method="post" >
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Dish Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ChefId">Chef</label>
+            <select asp-for="ChefId" required>
+                @foreach (var c in ViewBag.AllChefs)
+                {
+                    <option value="@c.ChefId">@c.Name @c.Surname</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Tastiness" class="control-label">Tastiness</label>
+            <input asp-for="Tastiness" class="form-control" type="number" />
+            <span asp-validation-for="Tastiness" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Calories" class="control-label">Calories</label>
+            <input asp-for="Calories" class="form-control" type="number" />
+            <span asp-validation-for="Calories" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
