@@ -48,7 +48,7 @@ public class HomeController : Controller
     public IActionResult CreateDish(Dish dish){
         if (ModelState.IsValid)
         {
-            dish.ChefId = ViewBag.AllChefs?.FirstOrDefault()?.ChefId;
+           
             _context.Add(dish);
             _context.SaveChanges();
             return RedirectToAction("Dishes");

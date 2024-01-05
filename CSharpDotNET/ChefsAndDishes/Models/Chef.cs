@@ -15,10 +15,29 @@ public class Chef
     [Display(Name = "Date of Birth")]
     [PastDate(ErrorMessage = "Date of Birth must be in the past")]
     [MinimumAge(18, ErrorMessage = "Chef must be at least 18 years old")]
-    public DateTime DateOfBirth { get; set; }
+    public DateTime? DateOfBirth { get; set; }
 
     public List<Dish>? Dishes { get; set; }
+      public int Age {
+        get
+        {
+            if (DateOfBirth.HasValue)
+            {
+                DateTime now = DateTime.Now;
+                int age = now.Year - DateOfBirth.Value.Year;
+
+                if (now < DateOfBirth.Value.AddYears(age))
+                {
+                    age--;
+                }
+
+                return age;
+            }
+            return 0;
+        }
+    }
 }
+
 
 
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]

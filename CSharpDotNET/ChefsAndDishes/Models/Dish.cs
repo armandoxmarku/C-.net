@@ -17,5 +17,5 @@ public class Dish
     public int Calories { get; set; }
 
     public int ChefId { get; set; }
-    public Chef Chef { get; set; }
+    public Chef? Chef { get; set; }
 }
