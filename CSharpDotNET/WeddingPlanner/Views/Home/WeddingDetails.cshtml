@@ -1,0 +1,47 @@
+@model Wedding
+
+@{
+    ViewData["Title"] = "Wedding Details";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Wedding Details</h1>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3 class="card-title">Wedding Information</h3>
+            <dl class="row">
+                <dt class="col-sm-3">Wedder One:</dt>
+                <dd class="col-sm-9">@Model.WedderOne</dd>
+
+                <dt class="col-sm-3">Wedder Two:</dt>
+                <dd class="col-sm-9">@Model.WedderTwo</dd>
+
+                <dt class="col-sm-3">Date:</dt>
+                <dd class="col-sm-9">@Model.WeddingDate.ToString("MMM d yyyy")</dd>
+
+                <dt class="col-sm-3">Address:</dt>
+                <dd class="col-sm-9">@Model.WeddingAdress</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Guests</h3>
+            @if (Model.Guests != null && Model.Guests.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var invitation in Model.Guests)
+                    {
+                        <li class="list-group-item">@invitation.GuestUser?.Name</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No guests are currently attending.</p>
+            }
+        </div>
+    </div>
+</div>

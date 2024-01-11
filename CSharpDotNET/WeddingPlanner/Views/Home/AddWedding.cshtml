@@ -1,0 +1,41 @@
+@model Wedding
+
+@{
+    ViewData["Title"] = "Plan a Wedding";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Plan a Wedding</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="CreateWedding" method="post">
+                <div class="mb-3">
+                    <label asp-for="WedderOne" class="form-label">Wedder One:</label>
+                    <input asp-for="WedderOne" class="form-control" placeholder="First Wedder">
+                    <span asp-validation-for="WedderOne" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WedderTwo" class="form-label">Wedder Two:</label>
+                    <input asp-for="WedderTwo" class="form-control" placeholder="Second Wedder">
+                    <span asp-validation-for="WedderTwo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WeddingDate" class="form-label">Date:</label>
+                    <input asp-for="WeddingDate" class="form-control" placeholder="YYYY-MM-DD" type="date">
+                    <span asp-validation-for="WeddingDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WeddingAdress" class="form-label">Address:</label>
+                    <input asp-for="WeddingAdress" class="form-control" placeholder="Wedding Location">
+                    <span asp-validation-for="WeddingAdress" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-dark rounded">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
