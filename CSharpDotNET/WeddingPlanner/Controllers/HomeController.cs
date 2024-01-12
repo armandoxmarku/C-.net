@@ -12,13 +12,9 @@ public class SessionCheckAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {
-        // Find the session, but remember it may be null so we need int?
         int? userId = context.HttpContext.Session.GetInt32("UserId");
-        // Check to see if we got back null
         if (userId == null)
         {
-            // Redirect to the Index page if there was nothing in session
-            // "Home" here is referring to "HomeController", you can use any controller that is appropriate here
             context.Result = new RedirectToActionResult("Auth", "Home", null);
         }
     }
@@ -37,8 +33,9 @@ public class HomeController : Controller
 
     [SessionCheck]
     public IActionResult Index()
-    
     {
+        int? userId = HttpContext.Session.GetInt32("UserId");
+        ViewBag.userId = userId;
         
         ViewBag.weddingTable = _context.Weddings.Include(e => e.Guests).OrderBy(e => e.WeddingDate).ToList();
         return View();
@@ -105,9 +102,11 @@ public class HomeController : Controller
 
     [HttpPost("CreateWedding")]
     public IActionResult CreateWedding(Wedding weddingNgaForm){
+        int? userId = HttpContext.Session.GetInt32("UserId");
+        ViewBag.userId = userId;
 
         if(ModelState.IsValid){
-            
+            weddingNgaForm.UserId = userId;
 
             _context.Add(weddingNgaForm);
             _context.SaveChanges();
@@ -118,6 +117,8 @@ public class HomeController : Controller
     [SessionCheck]
     [HttpGet("WeddingDetails/{id}")]
     public IActionResult WeddingDetails(int id ){
+        int? userId = HttpContext.Session.GetInt32("UserId");
+        ViewBag.userId = userId;
         Wedding weddingDetails = _context.Weddings
         .Include(g =>g.Guests)
         .ThenInclude(u=>u.GuestUser)
