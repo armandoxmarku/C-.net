@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using BeltPrep.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Filters;
-using BeltPrep.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeltPrep.Controllers;
@@ -62,7 +61,7 @@ public class HomeController : Controller
         {
 
             User useriNgaDB = _context.Users
-            .FirstOrDefault(e => e.Email == useriNgaForma.Email);
+            .FirstOrDefault(e => e.Username == useriNgaForma.Username);
             if (useriNgaDB == null)
             {
                 ModelState.AddModelError("LoginEmail", "Invalid Email");

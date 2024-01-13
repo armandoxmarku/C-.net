@@ -5,7 +5,7 @@ namespace BeltPrep.Models;
 public class Login {
     [Required(ErrorMessage = "Email address is required.")]
     [EmailAddress(ErrorMessage = "Invalid email address.")]
-    public string Email { get; set; }
+    public string Username { get; set; }
 
     [Required(ErrorMessage = "Password is required.")]
     [DataType(DataType.Password)]

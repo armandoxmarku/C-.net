@@ -17,10 +17,9 @@ public class User{
     public string LastName { get; set; }
 
     [Required]
-    [EmailAddress(ErrorMessage = "Invalid email address.")]
     // [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$", ErrorMessage = "Invalid email address.")]
-    [UniqueEmail]
-    public string Email { get; set; }
+    [UniqueUsername]
+    public string Username{ get; set; }
 
     [Required(ErrorMessage = "Password is required.")]
     [DataType(DataType.Password)]
@@ -37,7 +36,7 @@ public class User{
     [DataType(DataType.Password)]
     public string PasswordConfirm { get; set; }
 }
-public class UniqueEmailAttribute : ValidationAttribute
+public class UniqueUsernameAttribute : ValidationAttribute
 {
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext) {
         if (value == null) {
@@ -45,8 +44,8 @@ public class UniqueEmailAttribute : ValidationAttribute
         }
 
         MyContext _context = (MyContext)validationContext.GetService(typeof(MyContext));
-        if (_context.Users.Any(e => e.Email == value.ToString())) {
-            return new ValidationResult("This email is already registered.");
+        if (_context.Users.Any(e => e.Username == value.ToString())) {
+            return new ValidationResult("This Username is already registered.");
         } else {
             return ValidationResult.Success;
         }
