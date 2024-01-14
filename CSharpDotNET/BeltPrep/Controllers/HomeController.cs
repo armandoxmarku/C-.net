@@ -25,13 +25,24 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger, MyContext context)
     {
         _logger = logger;
-        _context =context;
+        _context = context;
     }
     [SessionCheck]
     public IActionResult Index()
     {
-          ViewBag.aktivitet = _context.Events.Include(e=>e.Creator).Include(e=>e.Guests).ToList();
-        //   ViewBag.threeMEdeshir  = _context.Events.
+        ViewBag.aktivitet = _context.Events.Include(e => e.Creator).Include(e => e.Guests).ToList();
+       ViewBag.medeshireUsers = _context.Guests
+        .Where(guest => guest.Description == "MeDeshire")
+        .GroupBy(guest => new { UserId = guest.UserGuest.UserId, UserName = guest.UserGuest.Name })
+        .Select(group => new
+        {
+            UserId = group.Key.UserId,
+            UserName = group.Key.UserName,
+            Count = group.Count()
+        })
+        .Take(3)
+        .ToList();
+
         return View();
     }
     [HttpGet("Auth")]
@@ -84,57 +95,65 @@ public class HomeController : Controller
 
     }
     [HttpGet("LogOut")]
-    public IActionResult LogOut(){
+    public IActionResult LogOut()
+    {
         HttpContext.Session.Clear();
         return RedirectToAction("Auth");
     }
     [SessionCheck]
     [HttpGet("AddEvent")]
-    public IActionResult AddEvent(){
+    public IActionResult AddEvent()
+    {
         return View();
     }
     [SessionCheck]
     [HttpPost("CreateEvent")]
-    public IActionResult CreateEvent(Event eventForm){
+    public IActionResult CreateEvent(Event eventForm)
+    {
         if (ModelState.IsValid)
         {
-            eventForm.UserId=HttpContext.Session.GetInt32("UserId");
+            eventForm.UserId = HttpContext.Session.GetInt32("UserId");
             _context.Add(eventForm);
             _context.SaveChanges();
-           return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
         return View("AddEvent");
     }
     [SessionCheck]
     [HttpGet("EventDetails/{id}")]
-    public IActionResult EventDetails(int id){
-        ViewBag.UserId=HttpContext.Session.GetInt32("UserId");
-        Event aktivitetiNgaDb = _context.Events.Include(e=>e.Creator).Include(e=>e.Guests).FirstOrDefault(e=> e.EventId==id);
+    public IActionResult EventDetails(int id)
+    {
+        ViewBag.UserId = HttpContext.Session.GetInt32("UserId");
+        Event aktivitetiNgaDb = _context.Events.Include(e => e.Creator).Include(e => e.Guests).FirstOrDefault(e => e.EventId == id);
         ViewBag.aktivitetiNgaDb = aktivitetiNgaDb;
         return View("EventDetails");
     }
     [SessionCheck]
-     [HttpPost("Merrpjese/{id}")]
-    public IActionResult JoinEvent( Guest guest,int id){
+    [HttpPost("Merrpjese/{id}")]
+    public IActionResult JoinEvent(Guest guest, int id)
+    {
         guest.EventId = id;
-        guest.UserId=HttpContext.Session.GetInt32("UserId");
-         _context.Add(guest);
-        _context.SaveChanges(); 
+        guest.UserId = HttpContext.Session.GetInt32("UserId");
+        _context.Add(guest);
+        _context.SaveChanges();
         return RedirectToAction("Index");
     }
     [SessionCheck]
     [HttpGet("EditEvent/{id}")]
-    public IActionResult EditEvent(int id){
-        Event eventdb = _context.Events.FirstOrDefault(e =>e.EventId ==id);
-        return View("EditEvent",eventdb);
+    public IActionResult EditEvent(int id)
+    {
+        Event eventdb = _context.Events.FirstOrDefault(e => e.EventId == id);
+        return View("EditEvent", eventdb);
     }
     [SessionCheck]
     [HttpPost("EventUpdate/{id}")]
-    public IActionResult EventUpdate(Event eventi,int id){
-        Event eventdb = _context.Events.FirstOrDefault(e =>e.EventId ==id);        int? userId = HttpContext.Session.GetInt32("UserId");
+    public IActionResult EventUpdate(Event eventi, int id)
+    {
+        Event eventdb = _context.Events.FirstOrDefault(e => e.EventId == id); int? userId = HttpContext.Session.GetInt32("UserId");
         ViewBag.userId = userId;
-        if( eventdb.Name == eventi.Name ){
-            return RedirectToAction("Index",new  {id = id});
+        if (eventdb.Name == eventi.Name)
+        {
+            return RedirectToAction("Index", new { id = id });
 
 
         }
@@ -143,12 +162,12 @@ public class HomeController : Controller
             eventdb.Name = eventi.Name;
             eventdb.Description = eventi.Description;
             _context.SaveChanges();
-            return RedirectToAction("Index",new  {id = id});
-           
+            return RedirectToAction("Index", new { id = id });
+
         }
-        return View("EditEvent",eventdb);
+        return View("EditEvent", eventdb);
     }
-    
+
     public IActionResult Privacy()
     {
         return View();

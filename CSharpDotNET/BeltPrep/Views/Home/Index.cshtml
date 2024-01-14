@@ -6,26 +6,48 @@
     <div class="col-6">
         <h2>Events</h2>
         <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Nr Guest</th>
-     
-    </tr>
-  </thead>
-  <tbody>
-    @foreach(var item in ViewBag.aktivitet)
-    {
+            <thead>
                 <tr>
-      <th scope="row"> @item.EventId</th>
-      <td><a asp-action="EventDetails" asp-route-id="@item.EventId"> @item.Name</a></td>
-      <td>@item.Guests.Count</td>
-    </tr>
-    }
-  
-  </tbody>
-</table>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Nr Guest</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.aktivitet)
+                {
+                    <tr>
+                        <th scope="row"> @item.EventId</th>
+                        <td><a asp-action="EventDetails" asp-route-id="@item.EventId"> @item.Name</a></td>
+                        <td>@item.Guests.Count</td>
+                    </tr>
 
+                   
+                }
+            </tbody>
+        </table>
     </div>
+     <div class="col-6">
+    <h4> 3 Users Who Picked MeDeshire with Count:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in ViewBag.medeshireUsers)
+            {
+                <tr>
+                    <td>@user.UserId</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 </div>
