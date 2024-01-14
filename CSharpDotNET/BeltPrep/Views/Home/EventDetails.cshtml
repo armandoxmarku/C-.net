@@ -27,7 +27,6 @@
     }
     else
     {
-        // Check if the current user is not the creator before rendering the "Join" form
         if (ViewBag.aktivitetiNgaDb.UserId != ViewBag.userId)
         {
             List<Guest> guests = ViewBag.aktivitetiNgaDb.Guests;
