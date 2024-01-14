@@ -5,7 +5,11 @@
         <p>@ViewBag.aktivitetiNgaDb.Description</p>
         <p>Created By @ViewBag.aktivitetiNgaDb.Creator.Name</p>
     </div>
-    
+    @if (ViewBag.userId == ViewBag.aktivitetiNgaDb.UserId)
+              {
+                
+            <a asp-action="EditEvent" asp-route-id="ViewBag.aktivitetiNgaDb" class="btn btn-outline-dark border-2 shadow-sm btn-pad d-flex align-items-center">Edit</a>           
+              }
 @{
     List<Guest> guests = ViewBag.aktivitetiNgaDb.Guests;
         @if(!guests.Any(e=> e.UserId == ViewBag.UserId) ){

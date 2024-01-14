@@ -87,6 +87,7 @@ public class HomeController : Controller
         HttpContext.Session.Clear();
         return RedirectToAction("Auth");
     }
+    [SessionCheck]
     [HttpGet("AddEvent")]
     public IActionResult AddEvent(){
         return View();
@@ -118,6 +119,33 @@ public class HomeController : Controller
          _context.Add(guest);
         _context.SaveChanges(); 
         return RedirectToAction("Index");
+    }
+    [SessionCheck]
+    [HttpGet("EditEvent/{id}")]
+    public IActionResult EditEvent(int id){
+        Event eventdb = _context.Events.FirstOrDefault(e => !string.IsNullOrEmpty(e.Name) && !string.IsNullOrEmpty(e.Description));
+        return View("EditEvent",eventdb);
+    }
+    [SessionCheck]
+    [HttpPost("EventUpdate/{id}")]
+    public IActionResult EventUpdate(Event eventi,int id){
+        Event eventdb = _context.Events.FirstOrDefault(e => !string.IsNullOrEmpty(e.Name) && !string.IsNullOrEmpty(e.Description) && e.EventId == id);
+        int? userId = HttpContext.Session.GetInt32("UserId");
+        ViewBag.userId = userId;
+        if( eventi.Name == eventdb.Name){
+            return RedirectToAction("Index",new  {id = id});
+
+
+        }
+        else if (ModelState.IsValid)
+        {
+            eventdb.Name = eventi.Name;
+            eventdb.Description = eventi.Description;
+            _context.SaveChanges();
+            return RedirectToAction("Index",new  {id = id});
+           
+        }
+        return View("EditEvent",eventdb);
     }
     
     public IActionResult Privacy()
