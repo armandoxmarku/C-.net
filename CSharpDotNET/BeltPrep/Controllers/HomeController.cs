@@ -31,6 +31,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
           ViewBag.aktivitet = _context.Events.Include(e=>e.Creator).Include(e=>e.Guests).ToList();
+        //   ViewBag.threeMEdeshir  = _context.Events.
         return View();
     }
     [HttpGet("Auth")]
@@ -108,7 +109,8 @@ public class HomeController : Controller
     [HttpGet("EventDetails/{id}")]
     public IActionResult EventDetails(int id){
         ViewBag.UserId=HttpContext.Session.GetInt32("UserId");
-        ViewBag.aktivitetiNgaDb = _context.Events.Include(e=>e.Creator).Include(e=>e.Guests).FirstOrDefault(e=> e.EventId==id);
+        Event aktivitetiNgaDb = _context.Events.Include(e=>e.Creator).Include(e=>e.Guests).FirstOrDefault(e=> e.EventId==id);
+        ViewBag.aktivitetiNgaDb = aktivitetiNgaDb;
         return View("EventDetails");
     }
     [SessionCheck]
@@ -123,16 +125,15 @@ public class HomeController : Controller
     [SessionCheck]
     [HttpGet("EditEvent/{id}")]
     public IActionResult EditEvent(int id){
-        Event eventdb = _context.Events.FirstOrDefault(e => !string.IsNullOrEmpty(e.Name) && !string.IsNullOrEmpty(e.Description));
+        Event eventdb = _context.Events.FirstOrDefault(e =>e.EventId ==id);
         return View("EditEvent",eventdb);
     }
     [SessionCheck]
     [HttpPost("EventUpdate/{id}")]
     public IActionResult EventUpdate(Event eventi,int id){
-        Event eventdb = _context.Events.FirstOrDefault(e => !string.IsNullOrEmpty(e.Name) && !string.IsNullOrEmpty(e.Description) && e.EventId == id);
-        int? userId = HttpContext.Session.GetInt32("UserId");
+        Event eventdb = _context.Events.FirstOrDefault(e =>e.EventId ==id);        int? userId = HttpContext.Session.GetInt32("UserId");
         ViewBag.userId = userId;
-        if( eventi.Name == eventdb.Name){
+        if( eventdb.Name == eventi.Name ){
             return RedirectToAction("Index",new  {id = id});
 
 

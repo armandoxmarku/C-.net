@@ -1,40 +1,54 @@
-@model Guest
+@model Event
+
 <div class="row">
     <div class="col-6">
-        <h2>@ViewBag.aktivitetiNgaDb.Name</h2>
-        <p>@ViewBag.aktivitetiNgaDb.Description</p>
-        <p>Created By @ViewBag.aktivitetiNgaDb.Creator.Name</p>
+        @if (ViewBag.aktivitetiNgaDb != null)
+        {
+            <h2>@ViewBag.aktivitetiNgaDb.Name</h2>
+            <p>@ViewBag.aktivitetiNgaDb.Description</p>
+            @if (ViewBag.aktivitetiNgaDb.Creator != null)
+            {
+                <p>Created By @ViewBag.aktivitetiNgaDb.Creator.Name</p>
+            }
+            else
+            {
+                <p>Created By Unknown</p>
+            }
+        }
+        else
+        {
+            <p>Event not found.</p>
+        }
     </div>
+
     @if (ViewBag.userId == ViewBag.aktivitetiNgaDb.UserId)
-              {
-                
-            <a asp-action="EditEvent" asp-route-id="ViewBag.aktivitetiNgaDb" class="btn btn-outline-dark border-2 shadow-sm btn-pad d-flex align-items-center">Edit</a>           
-              }
-@{
-    List<Guest> guests = ViewBag.aktivitetiNgaDb.Guests;
-        @if(!guests.Any(e=> e.UserId == ViewBag.UserId) ){
-            <div class="col-6">
+    {
+        <a asp-action="EditEvent" asp-route-id="@ViewBag.aktivitetiNgaDb.EventId" class="btn btn-outline-dark border-2 shadow-sm btn-pad d-flex align-items-center">Edit</a>
+    }
+    else
+    {
+        // Check if the current user is not the creator before rendering the "Join" form
+        if (ViewBag.aktivitetiNgaDb.UserId != ViewBag.userId)
+        {
+            List<Guest> guests = ViewBag.aktivitetiNgaDb.Guests;
+            if (guests != null && !guests.Any(e => e.UserId == ViewBag.UserId))
+            {
+                <div class="col-6">
+                    <form asp-action="JoinEvent" asp-route-id="@ViewBag.aktivitetiNgaDb.EventId">
+                        <div>
+                            <label asp-for="Description"></label>
+                            <select asp-for="Description">
+                                <option value="MeDeshire">MeDeshire</option>
+                                <option value="PaDeshire">PaDeshire</option>
+                                <option value="AjtMo">AjtMo</option>
+                            </select>
+                            <span asp-validation-for="Description"></span>
+                        </div>
 
-        <form asp-action="JoinEvent" asp-route-id="@ViewBag.aktivitetiNgaDb.EventId">
-                   <div>
-                <label asp-for="Description"></label>
-                <select asp-for="Description">
-                    <option value="MeDeshire">MeDeshire</option>
-                    <option value="PaDeshire">PaDeshire</option>
-                    <option value="AjtMo">AjtMo</option>
-                </select>
-                <span asp-validation-for="Description"></span>
-            </div>
-        
-  
-            <input type="submit" value="Merr Pjese">
-        </form>
-    </div>
-    }    
-}    
-    
-
-
-
-
+                        <input type="submit" value="Merr Pjese">
+                    </form>
+                </div>
+            }
+        }
+    }
 </div>

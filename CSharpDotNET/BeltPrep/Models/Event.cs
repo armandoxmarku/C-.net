@@ -1,6 +1,5 @@
 #pragma warning disable CS8618
 using System.ComponentModel.DataAnnotations;
-using BeltPrep.Models;
 namespace BeltPrep.Models;
 public class Event
 {
