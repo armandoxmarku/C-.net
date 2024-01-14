@@ -43,6 +43,18 @@ public class HomeController : Controller
         .Take(3)
         .ToList();
 
+        ViewBag.ajtMo = _context.Guests
+        .Where(guest => guest.Description == "AjtMo")
+        .GroupBy(guest => new { UserId = guest.UserGuest.UserId, UserName = guest.UserGuest.Name })
+        .Select(group => new
+        {
+            UserId = group.Key.UserId,
+            UserName = group.Key.UserName,
+            Count = group.Count()
+        })
+        .Take(3)
+        .ToList();
+
         return View();
     }
     [HttpGet("Auth")]
