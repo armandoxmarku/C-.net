@@ -1,0 +1,38 @@
+@model ViewInfoProject
+ @await Html.PartialAsync("_nav")
+<div>
+    <h1 class="text-center">@Model.Project.Title</h1>
+    <p class="text-center">@Model.Project.Description</p>
+    <div class='d-flex justify-content-between'>
+        <div>
+            <h2>US$ @Model.TotalDonations</h2>
+            <p>Pledged of US$ @Model.Project.Goal goal</p>
+            <h2>@Model.SupportersCount</h2>
+            <p>Supporters</p>
+            <h2>Ends: @Model.Project.EndDate.ToString("MMM dd, yyyy")</h2>
+            @if (@Model.UntilEnd > TimeSpan.Zero)
+            {
+                <p> @Model.UntilEnd.ToString(@"dd") days @Model.UntilEnd.ToString(@"hh") hours
+                    @Model.UntilEnd.ToString(@"mm") minute remaining</p>
+            }
+            else
+            {
+                <p>This has expired</p>
+            }
+        </div>
+        <div>
+            @if (Context.Session.GetInt32("UserId") != @Model.Project.CreatorId
+            && @Model.Project.EndDate > DateTime.Now
+            && !Model.UserHasSupported
+            &&
+            !Context.Session.GetInt32($"UserHasSupported_{Context.Session.GetInt32("UserId")}_{Model.Project.ProjectId}").HasValue)
+            {
+                <form asp-action="SupportProject" asp-route-projectId="@Model.Project.ProjectId">
+                    <h2>Support this Project</h2>
+                    <input asp-for="@Model.suporters.Donations" type="number" min="1" />
+                    <input type="submit" value="Support" />
+                </form>
+            }
+        </div>
+    </div>
+</div>

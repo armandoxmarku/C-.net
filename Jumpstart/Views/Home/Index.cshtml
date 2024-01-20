@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model List<Jumpstart.Models.Project>
+     @await Html.PartialAsync("_nav")
+<h1>Discover</h1>
+    <div class="gap-5 d-flex">
+        <table class="table table-striped">
+            <thead>
+                <th>Project Title</th>
+                <th>Total Funding</th>
+                <th>Creator</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                @foreach(Jumpstart.Models.Project p in Model)
+                {
+                    <tr>
+                        <td>@p.Title</td>
+                        <td>@p.TotalDonations $</td>
+                        <td>@p.Creator.FirstName @p.Creator.LastName</td>
+                        <td class="d-flex gap-3">
+                            <a  asp-action="ProjectDetails" asp-route-projectId="@p.ProjectId"><button>View</button></a>
+                            @if(@Context.Session.GetInt32("UserId")==p.Creator.UserId)
+                        {
+                            <form asp-action="DeleteProject" asp-route-projectId="@p.ProjectId">
+                                <button>Delete</button>
+                            </form>
+                        }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
