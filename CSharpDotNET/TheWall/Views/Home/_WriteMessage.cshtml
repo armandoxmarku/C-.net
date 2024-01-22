@@ -1,0 +1,17 @@
+@model Message
+
+
+<form asp-action="WriteMessage" class="row justify-content-center" method="post">
+    <div class="col-8">
+        <div class="form-group">
+            <h4>Post a message</h4>
+            <textarea asp-for="MyMessage" class="form-control mt-2 border border-dark" id="MyMessage" rows="3"></textarea>
+            <span class="d-flex justify-content-end">
+                <span asp-validation-for="MyMessage" class="text-danger"></span>
+            </span>
+        </div>
+        <span class="d-flex justify-content-end">
+            <input type="submit" class="btn btn-success shadow border border-dark mt-2" value="Post">
+        </span>
+    </div>
+</form>
