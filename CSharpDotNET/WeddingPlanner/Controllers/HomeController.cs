@@ -6,8 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using WeddingPlanner.Models;
 
 namespace WeddingPlanner.Controllers;
-
-
 public class SessionCheckAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
@@ -19,7 +17,6 @@ public class SessionCheckAttribute : ActionFilterAttribute
         }
     }
 }
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -37,13 +34,17 @@ public class HomeController : Controller
         int? userId = HttpContext.Session.GetInt32("UserId");
         ViewBag.userId = userId;
         
-        ViewBag.weddingTable = _context.Weddings.Include(e => e.Guests).OrderBy(e => e.WeddingDate).ToList();
+        ViewBag.weddingTable = _context.Weddings
+        .Include(e => e.Guests)
+        .OrderBy(e => e.WeddingDate)
+        .ToList();
         return View();
     }
     public IActionResult Auth()
     {
         return View("Auth");
     }
+    
     public IActionResult Register(User useriNgaForma)
     {
 
@@ -65,7 +66,8 @@ public class HomeController : Controller
         if (ModelState.IsValid)
         {
 
-            User useriNgaDB = _context.Users.FirstOrDefault(e => e.Email == useriNgaForma.Email);
+            User useriNgaDB = _context.Users
+            .FirstOrDefault(e => e.Email == useriNgaForma.Email);
             if (useriNgaDB == null)
             {
                 ModelState.AddModelError("LoginEmail", "Invalid Email");
@@ -145,7 +147,8 @@ public class HomeController : Controller
         int? UserId = HttpContext.Session.GetInt32("UserId");
         ViewBag.userId = UserId;
         
-        Guest GuestFromDb = _context.Guests.FirstOrDefault(e=> e.WeddingId == Id && e.UserId == UserId);
+        Guest GuestFromDb = _context.Guests
+        .FirstOrDefault(e=> e.WeddingId == Id && e.UserId == UserId);
         _context.Remove(GuestFromDb);
         _context.SaveChanges();
 
@@ -157,7 +160,9 @@ public class HomeController : Controller
         int? UserId = HttpContext.Session.GetInt32("UserId");
         ViewBag.userId = UserId;
 
-        Wedding deleteWedding = _context.Weddings.Include(e => e.Guests).FirstOrDefault(e=> e.WeddingId == id);
+        Wedding deleteWedding = _context.Weddings
+        .Include(e => e.Guests)
+        .FirstOrDefault(e=> e.WeddingId == id);
         _context.Remove(deleteWedding);
         _context.SaveChanges();
 

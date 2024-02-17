@@ -34,7 +34,7 @@
               @if (ViewBag.userId == wedding.UserId)
               {
                 <td>
-                  <a asp-action="Deletewedding" asp-route-id="@wedding.WeddingId" class="btn btn-danger w-100">Delete</a>
+                    <a asp-action="Deletewedding" asp-route-id="@wedding.WeddingId" class="btn btn-danger btn-block">Delete</a>
                 </td>
               }
               else

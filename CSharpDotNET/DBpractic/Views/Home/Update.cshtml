@@ -1,0 +1,19 @@
+@model User
+<form action="Update"  asp-route-id="@Model.UserId" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" type="text">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Height"></label>
+        <input asp-for="Height" type="text">
+        <span asp-validation-for="Height"></span>
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" type="text">
+        <span asp-validation-for="Description"></span>
+    </div>
+    <input type="submit">
+</form>

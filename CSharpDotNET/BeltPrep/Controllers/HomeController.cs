@@ -161,7 +161,8 @@ public class HomeController : Controller
     [HttpPost("EventUpdate/{id}")]
     public IActionResult EventUpdate(Event eventi, int id)
     {
-        Event eventdb = _context.Events.FirstOrDefault(e => e.EventId == id); int? userId = HttpContext.Session.GetInt32("UserId");
+        Event eventdb = _context.Events.FirstOrDefault(e => e.EventId == id);
+         int? userId = HttpContext.Session.GetInt32("UserId");
         ViewBag.userId = userId;
         if (eventdb.Name == eventi.Name)
         {

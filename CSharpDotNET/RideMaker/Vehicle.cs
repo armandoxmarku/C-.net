@@ -57,6 +57,6 @@ public class Vehicle
     public void Travel(int distance)
     {
         distanceTraveled += distance;
-        Console.WriteLine($"Traveled {distance} miles. Total distance: {distanceTraveled} miles.");
+        System.Console.WriteLine($"Traveled {distance} miles. Total distance: {distanceTraveled} miles.");
     }
 }

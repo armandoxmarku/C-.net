@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using TheWall.Models;
 
@@ -123,7 +122,7 @@ public class HomeController : Controller
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
-       [SessionCheck]
+    [SessionCheck]
     [HttpPost]
     public IActionResult PostComment(Comment commentForm, int itemid)
     {

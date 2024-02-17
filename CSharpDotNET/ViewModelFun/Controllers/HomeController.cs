@@ -43,7 +43,7 @@ public class HomeController : Controller
             lname = "marku"
         };
         ViewBag.User = user;
-        return View("Person", user);
+        return View(user);
     }
 
     [HttpGet("/user")]
@@ -63,18 +63,18 @@ public class HomeController : Controller
     {
         User llesh = new User
         {
-            fname = "llesh",
-            lname = "pjetri"
+            fname = "Llesh",
+            lname = "Pjetri"
         };
         User mark = new User
         {
-            fname = "mark",
-            lname = "doda"
+            fname = "Mark",
+            lname = "Doda"
         };
         User frrok = new User
         {
-            fname = "frrok",
-            lname = "prenga"
+            fname = "Frrok",
+            lname = "Prenga"
         };
         List<User> users = new List<User>()
         {

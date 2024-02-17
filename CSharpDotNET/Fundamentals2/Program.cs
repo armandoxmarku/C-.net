@@ -38,7 +38,6 @@ System.Console.WriteLine("Length of the List after removal: " + iceCreamFlavors.
 string[] names2 = { "Alice", "Bob", "Charlie", "David", "Eva" };
 List<string> iceCreamFlavors2 = new List<string> { "Chocolate", "Vanilla", "Strawberry", "Mint Chocolate Chip", "Cookie Dough", "Rocky Road" };
 
-
 Dictionary<string, string> userDictionary = new Dictionary<string, string>();
 
 
@@ -49,7 +48,6 @@ foreach (string name in names2)
     string randomFlavor = iceCreamFlavors2[randomIndex];
     userDictionary.Add(name, randomFlavor);
 }
-
 
 foreach (var keyValue in userDictionary)
 {

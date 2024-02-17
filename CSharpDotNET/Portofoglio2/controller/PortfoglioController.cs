@@ -1,7 +1,7 @@
 // This brings all the MVC features we need to this file
 using Microsoft.AspNetCore.Mvc;
 // Be sure to use your own project's namespace here! 
-namespace Portfoglio.Controllers;   
+namespace Portofoglio2.Controllers;   
 public class PortfoglioController : Controller  
 {
     [HttpGet("")]
